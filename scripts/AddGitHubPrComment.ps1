@@ -4,7 +4,7 @@
 [CmdletBinding()]
 param (
     [string]
-    $repo = "staff-infrastructure-azure-landing-zone",
+    $repo = "ministryofjustice/staff-infrastructure-azure-landing-zone",
     [int]
     $pr,
     [string]
@@ -64,7 +64,7 @@ General notes
 function Minimize-Comment {
     param (
         [string]
-        $repo = "staff-infrastructure-azure-landing-zone",
+        $repo = "ministryofjustice/staff-infrastructure-azure-landing-zone",
         [int]
         $pr,
         [string]
@@ -214,7 +214,7 @@ if ($isScan -and [io.path]::GetExtension($inputFile) -ne '.xml' ) { $inputFile +
 $headers = @{"Authorization" = "token $token" }
 $headers.Add("Accept", "application/vnd.github.v4+json")
 
-$uri = "https://api.github.com/repos/ministryofjustice/{0}/issues/{1}/comments" -f $repo, $pr
+$uri = "https://api.github.com/repos/{0}/issues/{1}/comments" -f $repo, $pr
 
 if ($isPlan) {
 
